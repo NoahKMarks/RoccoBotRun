@@ -177,11 +177,17 @@ surface_material_override/0 = ExtResource("2_jq3y0")
 
 [node name="RightUpperLookAt" type="LookAtModifier3D" parent="Character/RoccoBotRig/Skeleton3D" index="20" unique_id=960952685]
 influence = 0.0
-target_node = NodePath("../../../RightUpperArmTarget")
+target_node = NodePath("../../../../RightTarget")
 bone_name = "upper_arm.R"
 bone = 14
 forward_axis = 2
 primary_rotation_axis = 0
+use_angle_limitation = true
+symmetry_limitation = true
+primary_limit_angle = 1.0471976
+primary_damp_threshold = 1.0
+secondary_limit_angle = 1.0471976
+secondary_damp_threshold = 1.0
 
 [node name="RightLowerLookAt" type="LookAtModifier3D" parent="Character/RoccoBotRig/Skeleton3D" index="21" unique_id=1187181680]
 influence = 0.0
@@ -190,20 +196,54 @@ bone_name = "lower_arm.R"
 bone = 15
 forward_axis = 2
 primary_rotation_axis = 0
+use_angle_limitation = true
+symmetry_limitation = true
+primary_limit_angle = 2.0943952
+primary_damp_threshold = 1.0
+secondary_limit_angle = 2.0943952
+secondary_damp_threshold = 1.0
 
 [node name="LeftUpperLookAt" type="LookAtModifier3D" parent="Character/RoccoBotRig/Skeleton3D" index="22" unique_id=32114113]
 influence = 0.0
-target_node = NodePath("../../../LeftUpperArmTarget")
+target_node = NodePath("../../../../LeftTarget")
 bone_name = "upper_arm.L"
 bone = 4
 forward_axis = 2
 primary_rotation_axis = 0
+use_angle_limitation = true
+symmetry_limitation = true
+primary_limit_angle = 1.0471976
+primary_damp_threshold = 1.0
+secondary_limit_angle = 1.0471976
+secondary_damp_threshold = 1.0
 
 [node name="LeftLowerLookAt" type="LookAtModifier3D" parent="Character/RoccoBotRig/Skeleton3D" index="23" unique_id=1644442698]
 influence = 0.0
 target_node = NodePath("../../../../LeftTarget")
 bone_name = "lower_arm.L"
 bone = 5
+forward_axis = 2
+primary_rotation_axis = 0
+use_angle_limitation = true
+symmetry_limitation = true
+primary_limit_angle = 2.0943952
+primary_damp_threshold = 1.0
+secondary_limit_angle = 2.0943952
+secondary_damp_threshold = 1.0
+
+[node name="LeftHandLookAt" type="LookAtModifier3D" parent="Character/RoccoBotRig/Skeleton3D" index="24" unique_id=1512295284]
+influence = 0.0
+target_node = NodePath("../../../../LeftTarget")
+bone_name = "hand.L"
+bone = 6
+forward_axis = 2
+primary_rotation_axis = 0
+
+[node name="RightHandLookAt" type="LookAtModifier3D" parent="Character/RoccoBotRig/Skeleton3D" index="25" unique_id=333926453]
+influence = 0.0
+target_node = NodePath("../../../../RightTarget")
+bone_name = "hand.R"
+bone = 16
 forward_axis = 2
 primary_rotation_axis = 0
 
@@ -232,12 +272,6 @@ script = ExtResource("9_baf7l")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Character/TailIKTarget" unique_id=1619401002]
 visible = false
 mesh = SubResource("SphereMesh_witln")
-
-[node name="RightUpperArmTarget" type="Node3D" parent="Character" unique_id=204985021]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.5, 0.55, 0)
-
-[node name="LeftUpperArmTarget" type="Node3D" parent="Character" unique_id=1947793236]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -0.5, 0.55, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1428097023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)

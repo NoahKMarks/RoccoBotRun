@@ -10,10 +10,11 @@ class_name PlayerItemLocation
 @export var inventory_slot_path : NodePath
 @export var upper_limb_look : String
 @export var lower_limb_look : String
+@export var hand_look : String
 @export var item_activation : float
 
 
-func _init(_node_path_string : String, _use_action : String, _swap_action : String, _inventory_slot_path_string : String, _inventory_progress_bar_path_string : String, _upper_limb_look = "", _lower_limb_look = ""):
+func _init(_node_path_string : String, _use_action : String, _swap_action : String, _inventory_slot_path_string : String, _inventory_progress_bar_path_string : String, _upper_limb_look = "", _lower_limb_look = "", _hand_look = ""):
 	node_path = NodePath(_node_path_string)
 	use_action = _use_action
 	swap_action = _swap_action
@@ -22,4 +23,5 @@ func _init(_node_path_string : String, _use_action : String, _swap_action : Stri
 	inventory_progress_bar_path = NodePath(_inventory_progress_bar_path_string)
 	upper_limb_look = _upper_limb_look
 	lower_limb_look = _lower_limb_look
+	hand_look = _hand_look
 	item_activation = 0

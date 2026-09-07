@@ -4,7 +4,7 @@ const BLAST_PROJECTILE = preload("res://Items/Weapons/PlasmaCannon/plasma_blast.
 
 @export var target_group = "enemies"
 @export var fire_rate : float
-@export var damage : int
+@export var damage : int = 100
 
 #Charge Component
 @export var max_charge : int = 4

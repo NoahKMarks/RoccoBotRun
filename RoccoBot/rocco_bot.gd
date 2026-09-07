@@ -10,8 +10,8 @@ signal died
 #@onready var left_aim_ik: SkeletonIK3D = $Object/Skeleton3D/LeftAimIK
 
 var item_locations = [
-	PlayerItemLocation.new("Character/RoccoBotRig/Skeleton3D/LeftItemAttatch/LeftItemLocation", "left_action", "swap_left_action", "Control/Inventory/EquippedItems/LeftItemSlot", "Control/Inventory/EquippedItems/LeftItemSlot/LeftAmmoIndicator", "Character/RoccoBotRig/Skeleton3D/LeftUpperLookAt", "Character/RoccoBotRig/Skeleton3D/LeftLowerLookAt"),
-	PlayerItemLocation.new("Character/RoccoBotRig/Skeleton3D/RightItemAttatch/RightItemLocation", "right_action", "swap_right_action","Control/Inventory/EquippedItems/RightItemSlot", "Control/Inventory/EquippedItems/RightItemSlot/LeftAmmoIndicator", "Character/RoccoBotRig/Skeleton3D/RightUpperLookAt", "Character/RoccoBotRig/Skeleton3D/RightLowerLookAt"), 
+	PlayerItemLocation.new("Character/RoccoBotRig/Skeleton3D/LeftItemAttatch/LeftItemLocation", "left_action", "swap_left_action", "Control/Inventory/EquippedItems/LeftItemSlot", "Control/Inventory/EquippedItems/LeftItemSlot/LeftAmmoIndicator", "Character/RoccoBotRig/Skeleton3D/LeftUpperLookAt", "Character/RoccoBotRig/Skeleton3D/LeftLowerLookAt", "Character/RoccoBotRig/Skeleton3D/LeftHandLookAt"),
+	PlayerItemLocation.new("Character/RoccoBotRig/Skeleton3D/RightItemAttatch/RightItemLocation", "right_action", "swap_right_action","Control/Inventory/EquippedItems/RightItemSlot", "Control/Inventory/EquippedItems/RightItemSlot/LeftAmmoIndicator", "Character/RoccoBotRig/Skeleton3D/RightUpperLookAt", "Character/RoccoBotRig/Skeleton3D/RightLowerLookAt", "Character/RoccoBotRig/Skeleton3D/RightHandLookAt"), 
 	]
 
 enum Modifiers {
@@ -380,6 +380,7 @@ func _physics_process(delta: float) -> void:
 	for item_location in item_locations:
 		var upper_look : SkeletonModifier3D = get_node_or_null(item_location.upper_limb_look)
 		var lower_look : SkeletonModifier3D = get_node_or_null(item_location.lower_limb_look)
+		var hand_look : SkeletonModifier3D = get_node_or_null(item_location.hand_look)
 		
 		if Input.is_action_just_pressed(item_location.swap_action):
 			var first_inventory_item = $Character/InventoryItems.get_child(0)
@@ -392,12 +393,16 @@ func _physics_process(delta: float) -> void:
 			item_location.item_activation = move_toward(item_location.item_activation, 1.0, delta*item_pullout)
 			upper_look.influence = item_location.item_activation
 			lower_look.influence = item_location.item_activation
+			hand_look.influence = item_location.item_activation
+			
 		elif Input.is_action_just_released(item_location.use_action) and get_node(item_location.node_path).get_child_count()>0:
 			use_item_at_location(item_location, true)
 		else:
 			item_location.item_activation = move_toward(upper_look.influence, 0.0, delta*item_pullout/2)
 			upper_look.influence = item_location.item_activation
 			lower_look.influence = item_location.item_activation
+			hand_look.influence = item_location.item_activation
+
 		
 		#anim_blend_tree["parameters/"+item_location.anim_filter_name+"/blend_amount"] = item_location_ik.influence
 	#var dir_to_target = (($RightTarget.global_position+$LeftTarget.global_position)/2-global_position).normalized()
