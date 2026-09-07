@@ -63,6 +63,10 @@ var last_set_rotation : float = facing_direction
 @export var topdown_distance : float = 7.5
 
 @export var item_pullout : = 15
+@export var target_move_speed = 10 #how fast Roccobots hands move when the target positions are changed
+var right_target_pos = null
+var left_target_pos = null
+
 
 var speed = speed_default
 var ground_grip = ground_grip_default
@@ -408,6 +412,10 @@ func _physics_process(delta: float) -> void:
 	#var dir_to_target = (($RightTarget.global_position+$LeftTarget.global_position)/2-global_position).normalized()
 	#var facing = ($LeftTarget.global_position-$RightTarget.global_position).cross(Vector3.UP)
 	#look_at(global_position+facing, Vector3.UP)
+	if right_target_pos:
+		$RightTarget.global_position = $RightTarget.global_position.lerp(right_target_pos, delta*target_move_speed)
+	if left_target_pos:
+		$LeftTarget.global_position = $LeftTarget.global_position.move_toward(left_target_pos, delta*target_move_speed)
 	
 	
 	
@@ -430,23 +438,22 @@ func _process(delta: float) -> void:
 		time_last_rotated = 0
 		last_set_rotation = facing_direction
 		#target_facing_direction = snappedf(target_facing_direction, PI/2)
-	
+	if Input.is_action_pressed("select_primary"):
+		var raymousepos = get_raymousepos()
+		if raymousepos:
+			var target_pos = get_raymousepos()
+			left_target_pos = target_pos
+	if Input.is_action_pressed("select_secondary"):
+		var raymousepos = get_raymousepos()
+		if raymousepos:
+			var target_pos = get_raymousepos()
+			right_target_pos = target_pos
+			
 	if facing_direction != target_facing_direction:
 		facing_direction = lerp_angle(last_set_rotation, target_facing_direction, time_last_rotated/rotation_time)
 	$SpringArm3D.rotation.y = facing_direction
 	current_cam.rotation.y = facing_direction
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("select_primary"):
-		var raymousepos = get_raymousepos()
-		if raymousepos:
-			var target_pos = get_raymousepos()
-			$LeftTarget.global_position = target_pos
-	if event.is_action_pressed("select_secondary"):
-		var raymousepos = get_raymousepos()
-		if raymousepos:
-			var target_pos = get_raymousepos()
-			$RightTarget.global_position = target_pos
 
 func die():
 	emit_signal("died")
