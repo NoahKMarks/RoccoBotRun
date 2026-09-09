@@ -9,13 +9,11 @@ var progress = 0.0
 
 @export var explosion_power = 50
 @export var damage = 150
+@export var accent_color : String
 
 @onready var material  : StandardMaterial3D = $MeshInstance3D.get_active_material(0)
-var accent_color = "blue"
 
-var mat = Globals.glow_materials.get(accent_color, Globals.glow_materials["pink"])
-var mat_dup = mat.duplicate() as StandardMaterial3D
-
+var mat : StandardMaterial3D
 
 func _ready() -> void:	
 	$MeshInstance3D.scale = Vector3.ONE * initial_radius
@@ -26,8 +24,9 @@ func _ready() -> void:
 	
 	$AudioStreamPlayer3D.play()
 	
-	mat_dup.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	$MeshInstance3D.material_override = mat_dup
+	mat = Globals.get_material(Globals.MaterialTemplates.TransparentGlowMat, accent_color)
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	$MeshInstance3D.material_override = mat
 	
 	#var col = mat_dup.albedo_color
 	#col.a = 0.5
@@ -38,9 +37,9 @@ func _physics_process(delta: float) -> void:
 	progress = elapsed/expand_time
 	$MeshInstance3D.scale = Vector3.ONE * lerp(initial_radius, max_radius, progress)
 	
-	var col = mat_dup.albedo_color
+	var col = mat.albedo_color
 	col.a = lerp(1,0, progress)
-	mat_dup.albedo_color = col
+	mat.albedo_color = col
 		
 func _on_launch_timer_timeout():
 	var bodies = $Area3D.get_overlapping_bodies()

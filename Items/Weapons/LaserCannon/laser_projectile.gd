@@ -12,7 +12,7 @@ const decal_node = preload("res://Items/Weapons/LaserCannon/bullet_hole_decal.ts
 
 
 func _ready() -> void:
-	var mat = Globals.glow_materials.get(accent_color, Globals.glow_materials["pink"])
+	var mat = Globals.get_material(Globals.MaterialTemplates.LaserMat, accent_color)
 	$MeshInstance3D.material_override = mat
 	$DealDamageComponent.target_group = target_group
 	

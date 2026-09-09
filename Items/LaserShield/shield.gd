@@ -22,9 +22,11 @@ func _ready() -> void:
 	charge_component.charge_regen_rate = regen_rate
 	charge_component.regen_cooldown = regen_cooldown
 	
+	var mat := $MeshInstance3D.material_override as ShaderMaterial
+	#mat.set_shader_parameter("color", Globals.material_colors[accent_color]/255)
+	
 	set_activation(false)
-	var parent = get_parent()
-	#if parent:
+	#var parent = get_parent()
 
 func use_item():
 	if charge_component.charge>0:

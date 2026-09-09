@@ -15,8 +15,8 @@ func launch(impulse : Vector3):
 func explode():
 #	accent_color = materials.values()[ randi() % materials.size() ]
 	var explosion = EXPLOSION.instantiate()
-	var mat = Globals.glow_materials.get(accent_color, Globals.glow_materials["pink"])
-	explosion.get_node("MeshInstance3D").material_override = mat
+		
+	explosion.accent_color = accent_color
 	explosion.global_position = global_position
 	explosion.damage = damage
 	get_tree().current_scene.add_child(explosion)

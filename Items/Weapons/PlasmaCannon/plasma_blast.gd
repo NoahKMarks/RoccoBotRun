@@ -11,14 +11,8 @@ var expand_time = 0.25
 var max_size = 0.75
 
 func _ready() -> void:
-	var mat = Globals.glow_materials.get(accent_color, Globals.glow_materials["pink"])
-	
-	var mat_dup = mat.duplicate() as StandardMaterial3D
-	mat_dup.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	var col = mat_dup.albedo_color
-	col.a = 0.5
-	mat_dup.albedo_color = col
-	$MeshInstance3D.material_override = mat_dup
+	var mat = Globals.get_material(Globals.MaterialTemplates.TransparentGlowMat, accent_color)
+	$MeshInstance3D.material_override = mat
 
 var speed_fac = 1
 var _first_frame = true

@@ -10,7 +10,7 @@ uniform sampler2D sheild_emmision_tex : source_color;
 
 uniform float emmission_strength = 1.0;
 uniform float alpha_strength = 1.0;
-uniform vec3 color = vec3(255,0,0);
+uniform vec3 color = vec3(1,0,0);
 
 
 void fragment() {
@@ -20,7 +20,7 @@ void fragment() {
 
 
 	vec3 emmision_tex = texture(sheild_emmision_tex, UV).rgb;
-	EMISSION = emmision_tex*emmission_strength;
+	//EMISSION = emmision_tex*emmission_strength;
 
 	//vec3 alpha_tex = texture(sheild_alpha_tex, UV).rgb;
 	//float a = texture(alpha_tex, UV).r;

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5vore8n37spl"]
+[gd_scene format=3 uid="uid://b5vore8n37spl"]
 
-[ext_resource type="Script" path="res://Items/Weapons/GrenadeLauncher/explosion.gd" id="1_s035u"]
+[ext_resource type="Script" uid="uid://65gvg1wcrd8f" path="res://Items/Weapons/GrenadeLauncher/explosion.gd" id="1_s035u"]
 [ext_resource type="AudioStream" uid="uid://itq00mfukkc2" path="res://Items/Weapons/GrenadeLauncher/435413__v-ktor__explosion12.wav" id="2_25kn6"]
-[ext_resource type="Script" path="res://Components/deal_damage_component.gd" id="3_7h30x"]
+[ext_resource type="Material" uid="uid://xbyvetrltyaw" path="res://Materials/transparent_glow_mat.tres" id="2_dvj0y"]
+[ext_resource type="Script" uid="uid://cfclv6qvuowiy" path="res://Components/deal_damage_component.gd" id="3_7h30x"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_tyu1o"]
 radius = 1.0
@@ -10,42 +11,38 @@ height = 2.0
 radial_segments = 16
 rings = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2apt"]
-transparency = 4
-albedo_color = Color(0.195, 0.6825, 0.78, 0.392157)
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_l1bn6"]
 radius = 1.0
 
-[node name="Explosion" type="Node3D"]
+[node name="Explosion" type="Node3D" unique_id=1847835504]
 script = ExtResource("1_s035u")
 
-[node name="ExpandTimer" type="Timer" parent="."]
+[node name="ExpandTimer" type="Timer" parent="." unique_id=608251983]
 wait_time = 0.1
 
-[node name="Launch_Timer" type="Timer" parent="."]
+[node name="Launch_Timer" type="Timer" parent="." unique_id=1275370266]
 wait_time = 0.1
 one_shot = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1058810345]
 transform = Transform3D(0.0999986, -0.000532323, 0, 0.000532323, 0.0999986, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("SphereMesh_tyu1o")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_w2apt")
+surface_material_override/0 = ExtResource("2_dvj0y")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1209717678]
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=899377303]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("SphereShape3D_l1bn6")
 
-[node name="CheckRay" type="RayCast3D" parent="."]
+[node name="CheckRay" type="RayCast3D" parent="." unique_id=1015793465]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=591997816]
 stream = ExtResource("2_25kn6")
 
-[node name="DealDamageComponent" type="Node3D" parent="."]
+[node name="DealDamageComponent" type="Node3D" parent="." unique_id=806529977]
 script = ExtResource("3_7h30x")
 
 [connection signal="timeout" from="ExpandTimer" to="." method="_on_expand_timer_timeout"]

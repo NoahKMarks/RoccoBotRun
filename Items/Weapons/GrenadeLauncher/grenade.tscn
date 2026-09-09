@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://lhxg32llhuij"]
+[gd_scene format=3 uid="uid://lhxg32llhuij"]
 
-[ext_resource type="Script" path="res://Items/Weapons/GrenadeLauncher/grenade.gd" id="1_jtbeh"]
+[ext_resource type="Script" uid="uid://bqrs13lcvbkur" path="res://Items/Weapons/GrenadeLauncher/grenade.gd" id="1_jtbeh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_in4gs"]
 friction = 0.1
@@ -23,7 +23,7 @@ radius = 0.25
 [sub_resource type="SphereShape3D" id="SphereShape3D_klwes"]
 radius = 0.3
 
-[node name="Grenade" type="RigidBody3D"]
+[node name="Grenade" type="RigidBody3D" unique_id=1360102451]
 top_level = true
 collision_layer = 4
 collision_mask = 7
@@ -31,19 +31,19 @@ physics_material_override = SubResource("PhysicsMaterial_in4gs")
 script = ExtResource("1_jtbeh")
 explosion_time = 1.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1996931274]
 mesh = SubResource("SphereMesh_74et6")
 surface_material_override/0 = SubResource("StandardMaterial3D_oqsef")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1390045397]
 shape = SubResource("SphereShape3D_sxj12")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1438607669]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1862024657]
 shape = SubResource("SphereShape3D_klwes")
 
-[node name="ExplosionTimer" type="Timer" parent="."]
+[node name="ExplosionTimer" type="Timer" parent="." unique_id=241153893]
 wait_time = 0.5
 one_shot = true
 
