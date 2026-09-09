@@ -5,8 +5,10 @@ signal item_used
 
 @export var icon : Texture
 var is_equipped : bool = false
+var lock_rotation : bool = false #stops item from rotating when being held by roccobot
 var can_use = true
 var accent_color : String = "pink"
+
 #:
 	##set(value):
 		##print(self, value)

@@ -239,6 +239,20 @@ func equip_item(item : Item, item_location : PlayerItemLocation):
 		item.connect("item_foregrounded", cb)
 		item.connect("item_used", Callable())
 		item.item_used.connect(unequip_item.bind(item_location))
+		
+		var upper_look : SkeletonModifier3D = get_node_or_null(item_location.upper_limb_look)
+		var lower_look : SkeletonModifier3D = get_node_or_null(item_location.lower_limb_look)
+		var hand_look : SkeletonModifier3D = get_node_or_null(item_location.hand_look)
+		if upper_look and lower_look and hand_look:
+			if item.lock_rotation:
+				upper_look.use_secondary_rotation = false
+				lower_look.use_secondary_rotation = false
+				hand_look.use_secondary_rotation = false
+			else:
+				upper_look.use_secondary_rotation = true
+				lower_look.use_secondary_rotation = true
+				hand_look.use_secondary_rotation = true
+			
 
 func unequip_item(item_location : PlayerItemLocation):
 	var item = get_equiped_item(item_location)

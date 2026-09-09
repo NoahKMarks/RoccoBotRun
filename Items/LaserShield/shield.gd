@@ -15,6 +15,7 @@ extends Item
 
 
 func _ready() -> void:
+	lock_rotation = true
 	damagable_component.get_hit.connect(get_hit)
 	
 	charge_component.max_charge = max_charge

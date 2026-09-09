@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dndtnu600nx6r"]
+[gd_scene format=3 uid="uid://dndtnu600nx6r"]
 
-[ext_resource type="Script" path="res://Items/Weapons/GrenadeLauncher/grenade_launcher.gd" id="1_e2ua2"]
+[ext_resource type="Script" uid="uid://d0g3eecp3bmnd" path="res://Items/Weapons/GrenadeLauncher/grenade_launcher.gd" id="1_e2ua2"]
 [ext_resource type="Texture2D" uid="uid://emlsnyndlb1h" path="res://Items/Weapons/PlasmaCannon/Plasma_Cannon.png" id="2_vwxxk"]
-[ext_resource type="Script" path="res://Components/charge_component.gd" id="3_o4do1"]
-[ext_resource type="Script" path="res://Components/shoot_component.gd" id="4_ojnqx"]
+[ext_resource type="Script" uid="uid://dl2d8qqdajadl" path="res://Components/charge_component.gd" id="3_o4do1"]
+[ext_resource type="Script" uid="uid://do86e16gska1x" path="res://Components/shoot_component.gd" id="4_ojnqx"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_mnxr2"]
 top_radius = 0.15
@@ -11,20 +11,20 @@ bottom_radius = 0.3
 height = 0.5
 radial_segments = 8
 
-[node name="GrenadeLauncher" type="Node3D"]
+[node name="GrenadeLauncher" type="Node3D" unique_id=1806084351]
 script = ExtResource("1_e2ua2")
-accent_color = "blue"
+shots = 6
 icon = ExtResource("2_vwxxk")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=921516837]
 one_shot = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1276420939]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0)
 mesh = SubResource("CylinderMesh_mnxr2")
 
-[node name="ChargeComponent" type="Node3D" parent="."]
+[node name="ChargeComponent" type="Node3D" parent="." unique_id=1790274125]
 script = ExtResource("3_o4do1")
 
-[node name="ShootComponent" type="Node3D" parent="."]
+[node name="ShootComponent" type="Node3D" parent="." unique_id=1997346781]
 script = ExtResource("4_ojnqx")

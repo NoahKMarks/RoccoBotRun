@@ -6,6 +6,9 @@ extends Item
 @export var damage : float = 45
 @export var attack_cooldown = 0.25
 
+func _ready() -> void:
+	lock_rotation = true
+
 func use_item():
 	if $Timer.is_stopped() and can_use:
 		can_use = false

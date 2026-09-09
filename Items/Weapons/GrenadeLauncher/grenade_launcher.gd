@@ -6,6 +6,7 @@ const ANGLE_SPEED = PI
 
 @export var throw_cooldown : float = 1
 @export var damage : int = 150
+@export var shots = 3
 
 @onready var charge_component = $ChargeComponent
 @onready var shoot_component = $ShootComponent
@@ -18,10 +19,11 @@ var action_pressed := false
 var time_since_last_release : float = 0
 
 func _ready() -> void:
+	lock_rotation = true
 	shoot_component.projectile = GRENADE
 	shoot_component.damage = damage
 	shoot_component.accent_color = accent_color
-	charge_component.max_charge = 4
+	charge_component.max_charge = shots
 	charge_component.can_regen = false
 	
 	
