@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d0g3eecp3bmnd" path="res://Items/Weapons/GrenadeLauncher/grenade_launcher.gd" id="1_e2ua2"]
 [ext_resource type="Texture2D" uid="uid://emlsnyndlb1h" path="res://Items/Weapons/PlasmaCannon/Plasma_Cannon.png" id="2_vwxxk"]
+[ext_resource type="PackedScene" uid="uid://b58360w8sg2ye" path="res://Blender/ItemsandWeapons.blend" id="3_lw0aa"]
 [ext_resource type="Script" uid="uid://dl2d8qqdajadl" path="res://Components/charge_component.gd" id="3_o4do1"]
+[ext_resource type="Material" uid="uid://c6h1t4otwjmjd" path="res://Items/Weapons/roccobot_weapons_mat.tres" id="4_lw0aa"]
 [ext_resource type="Script" uid="uid://do86e16gska1x" path="res://Components/shoot_component.gd" id="4_ojnqx"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_mnxr2"]
@@ -16,11 +18,35 @@ script = ExtResource("1_e2ua2")
 shots = 6
 icon = ExtResource("2_vwxxk")
 
+[node name="ItemsandWeapons" parent="." unique_id=803704097 instance=ExtResource("3_lw0aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=795215860]
+process_mode = 4
+visible = false
+
+[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=934605364]
+process_mode = 4
+visible = false
+
+[node name="Sword" parent="ItemsandWeapons" index="2" unique_id=5784913]
+process_mode = 4
+visible = false
+
+[node name="GrenadeCannon" parent="ItemsandWeapons" index="3" unique_id=1701049046]
+surface_material_override/0 = ExtResource("4_lw0aa")
+surface_material_override/1 = ExtResource("4_lw0aa")
+
+[node name="LaserShied" parent="ItemsandWeapons" index="4" unique_id=1695226634]
+process_mode = 4
+visible = false
+
 [node name="Timer" type="Timer" parent="." unique_id=921516837]
 one_shot = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1276420939]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_mnxr2")
 
 [node name="ChargeComponent" type="Node3D" parent="." unique_id=1790274125]
@@ -28,3 +54,5 @@ script = ExtResource("3_o4do1")
 
 [node name="ShootComponent" type="Node3D" parent="." unique_id=1997346781]
 script = ExtResource("4_ojnqx")
+
+[editable path="ItemsandWeapons"]

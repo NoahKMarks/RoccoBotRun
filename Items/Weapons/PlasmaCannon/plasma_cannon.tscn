@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://c6pysmyrpu81h" path="res://Items/Weapons/PlasmaCannon/740358__soundflakes__sf_lasergun_grenadelauncher_shot.mp3" id="3_w6sjd"]
 [ext_resource type="PackedScene" uid="uid://piykro5eexix" path="res://Components/charge_component.tscn" id="6_d8o80"]
 [ext_resource type="PackedScene" uid="uid://fff3kpse3fak" path="res://Components/shoot_component.tscn" id="7_17u60"]
+[ext_resource type="PackedScene" uid="uid://b58360w8sg2ye" path="res://Blender/ItemsandWeapons.blend" id="8_ggsjx"]
+[ext_resource type="Material" uid="uid://c6h1t4otwjmjd" path="res://Items/Weapons/roccobot_weapons_mat.tres" id="9_ggsjx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdyja"]
 albedo_texture = ExtResource("3_16xie")
@@ -28,6 +30,7 @@ stream = ExtResource("3_w6sjd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1990178888]
 transform = Transform3D(-1, -1.50996e-07, 6.60024e-15, 0, -4.37114e-08, -1, 1.50996e-07, -1, 4.37114e-08, 0, 0, -0.1)
+visible = false
 mesh = ExtResource("2_a60cb")
 surface_material_override/0 = SubResource("StandardMaterial3D_qdyja")
 
@@ -37,3 +40,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 [node name="ChargeComponent" parent="." unique_id=539844932 instance=ExtResource("6_d8o80")]
 
 [node name="ShootComponent" parent="." unique_id=1376615443 instance=ExtResource("7_17u60")]
+
+[node name="ItemsandWeapons" parent="." unique_id=1624540665 instance=ExtResource("8_ggsjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=795215860]
+process_mode = 4
+visible = false
+
+[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=934605364]
+surface_material_override/0 = ExtResource("9_ggsjx")
+surface_material_override/1 = ExtResource("9_ggsjx")
+
+[node name="Sword" parent="ItemsandWeapons" index="2" unique_id=5784913]
+process_mode = 4
+visible = false
+
+[node name="GrenadeCannon" parent="ItemsandWeapons" index="3" unique_id=1701049046]
+process_mode = 4
+visible = false
+
+[node name="LaserShied" parent="ItemsandWeapons" index="4" unique_id=1695226634]
+process_mode = 4
+visible = false
+
+[node name="LaserShied" parent="ItemsandWeapons/LaserShied" index="0" unique_id=1345833272]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="ItemsandWeapons/LaserShied/LaserShied" index="0" unique_id=1647368985]
+process_mode = 4
+
+[node name="ShieldHandle" parent="ItemsandWeapons/LaserShied" index="1" unique_id=1471735620]
+process_mode = 4
+
+[editable path="ItemsandWeapons"]

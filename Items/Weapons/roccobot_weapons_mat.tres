@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c6h1t4otwjmjd"]
+
+[ext_resource type="Texture2D" uid="uid://dbd0g44yvq0ie" path="res://Items/Weapons/RoccoBotWeaponsCOLOR.png" id="1_xok85"]
+
+[resource]
+albedo_texture = ExtResource("1_xok85")
+metallic = 1.0
