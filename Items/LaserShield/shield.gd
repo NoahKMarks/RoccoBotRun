@@ -22,9 +22,8 @@ func _ready() -> void:
 	charge_component.charge_regen_rate = regen_rate
 	charge_component.regen_cooldown = regen_cooldown
 	
-	var mat := $MeshInstance3D.material_override as ShaderMaterial
-	#mat.set_shader_parameter("color", Globals.material_colors[accent_color]/255)
-	
+	var mat = Globals.get_material(Globals.MaterialTemplates.LaserShieldShader, accent_color)
+	$MeshInstance3D.set_surface_override_material(0, mat)
 	set_activation(false)
 	#var parent = get_parent()
 

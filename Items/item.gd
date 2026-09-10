@@ -21,7 +21,8 @@ func configure_item(accent_color):
 	
 	
 static func create_item(packed_scene: PackedScene, accent_color : String = "pink")->Item:
-	var item = packed_scene.instantiate()
+	var item_template = packed_scene.instantiate()
+	var item = item_template.duplicate()
 	item.configure_item(accent_color)
 	return item
 

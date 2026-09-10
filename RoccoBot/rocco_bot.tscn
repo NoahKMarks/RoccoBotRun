@@ -325,10 +325,12 @@ mesh = SubResource("SphereMesh_pefu6")
 
 [node name="RightTarget" type="MeshInstance3D" parent="." unique_id=871037661]
 top_level = true
+visible = false
 mesh = SubResource("SphereMesh_pefu6")
 
 [node name="LeftTarget" type="MeshInstance3D" parent="." unique_id=2143459545]
 top_level = true
+visible = false
 mesh = SubResource("SphereMesh_pefu6")
 
 [editable path="Character"]

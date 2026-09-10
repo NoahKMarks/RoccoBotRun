@@ -2,4 +2,4 @@
 
 [resource]
 emission_enabled = true
-emission_energy_multiplier = 2.5
+emission_energy_multiplier = 4.0

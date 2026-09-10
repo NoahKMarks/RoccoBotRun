@@ -26,11 +26,7 @@ func die():
 
 func _ready() -> void:
 	team = Globals.get_team(team_string)
-	var eye_mat = Globals.glow_materials["pink"]
-	if team.group == "enemies":
-		eye_mat = Globals.glow_materials["red"]
-	elif team.group == "player":
-		eye_mat = Globals.glow_materials["blue"]
+	var eye_mat = Globals.get_material(Globals.MaterialTemplates.LaserMat, team.accent_color)
 	$OtherRobots/EnemyRoboEye.material_override = eye_mat
 	
 	if weapon:

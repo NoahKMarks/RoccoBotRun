@@ -429,7 +429,7 @@ func _physics_process(delta: float) -> void:
 	if right_target_pos:
 		$RightTarget.global_position = $RightTarget.global_position.lerp(right_target_pos, delta*target_move_speed)
 	if left_target_pos:
-		$LeftTarget.global_position = $LeftTarget.global_position.move_toward(left_target_pos, delta*target_move_speed)
+		$LeftTarget.global_position = $LeftTarget.global_position.lerp(left_target_pos, delta*target_move_speed)
 	
 	
 	
