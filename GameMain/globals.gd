@@ -35,20 +35,34 @@ var material_colors = {
 	"green" : Color("408c55ff"),
 }
 
-func get_material(template_name : MaterialTemplates, color_name : String):
+var created_materials = {}
+
+func make_material(template : MaterialTemplates, color_name : String):
 	var color = material_colors[color_name]
 	var mat : StandardMaterial3D
-	match template_name:
+	match template:
 		MaterialTemplates.LaserMat:
 			mat = preload("res://Materials/laser_mat.tres")
 			mat.albedo_color = color
 			mat.emission = color
 		MaterialTemplates.TransparentGlowMat:
 			mat = preload("res://Materials/transparent_glow_mat.tres")
-			#mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 			var mat_alpha = mat.albedo_color.a
 			mat.albedo_color = color
-			mat.albedo_color.a = 0.25
+			mat.albedo_color.a = mat_alpha
 			mat.emission = color
-	
 	return mat
+
+func get_material(template : MaterialTemplates, color_name : String):
+	var exists = false
+	for key in created_materials:
+		if key[0]==template and key[1]==color_name:
+			exists = true
+	if exists == false:
+		var new_mat = make_material(template, color_name)
+		created_materials[[template, color_name]]  = new_mat
+		#print("making new mat")
+	return created_materials[[template, color_name]]
+		
+			
