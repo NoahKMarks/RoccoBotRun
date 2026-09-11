@@ -26,7 +26,6 @@ func _ready() -> void:
 	shoot_component.target_group = target_group
 	shoot_component.bloom_angle = BLOOM
 	shoot_component.damage = damage
-	shoot_component.accent_color = accent_color
 	shoot_component.bloom_angle = bloom_angle*PI/180
 	charge_component.max_charge = max_charge
 	charge_component.charge_regen_rate = regen_rate

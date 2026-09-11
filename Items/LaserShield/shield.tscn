@@ -77,24 +77,27 @@ stream = ExtResource("7_5ucky")
 
 [node name="ItemsandWeapons" parent="." unique_id=803704097 instance=ExtResource("7_dp4dk")]
 
-[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=795215860]
+[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=786090580]
 process_mode = 4
 visible = false
 
-[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=934605364]
+[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=1175271109]
 process_mode = 4
 visible = false
 
-[node name="Sword" parent="ItemsandWeapons" index="2" unique_id=5784913]
+[node name="Sword" parent="ItemsandWeapons" index="2" unique_id=876848022]
 process_mode = 4
 visible = false
 
-[node name="GrenadeCannon" parent="ItemsandWeapons" index="3" unique_id=1701049046]
+[node name="GrenadeCannon" parent="ItemsandWeapons" index="3" unique_id=886956499]
 process_mode = 4
 visible = false
 
-[node name="LaserShied" parent="ItemsandWeapons" index="4" unique_id=1695226634]
+[node name="LaserShied" parent="ItemsandWeapons" index="4" unique_id=1822742689]
 visible = false
 surface_material_override/0 = ExtResource("3_b7s03")
+
+[node name="LaserShied" parent="ItemsandWeapons/LaserShied" index="0" unique_id=122665756]
+process_mode = 4
 
 [editable path="ItemsandWeapons"]

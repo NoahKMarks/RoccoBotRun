@@ -54,7 +54,7 @@ func open():
 	open_tween.tween_property($LidPiv, "rotation", Vector3(PI/4,0,0), 1.0)
 	#open_tween.tween_property($LidPiv, "position", Vector3(0,0.5,0), 1.0)
 	var new_loose = item_loose.instantiate()
-	new_loose.item = items[0]
+	new_loose.item_scene = items[0]
 	new_loose.global_position = global_position + Vector3(0,0,crate_type.place_infront_distance)
 	get_tree().get_root().add_child(new_loose)
 

@@ -76,7 +76,7 @@ var super_jump_height = super_jump_height_default
 
 
 @onready var team_string = "player"
-@onready var team :Team
+@onready var team : Team
 
 var jump_time = 0.0
 var current_speed = speed
@@ -200,11 +200,11 @@ func use_item_at_location(item_location : PlayerItemLocation, is_release):
 			#ik.influence = 1.0
 			item.use_item()
 
-func add_item(packed_scene : PackedScene):
-	var configured_item = Item.create_item(packed_scene, team.accent_color)
-	#print(team, team.accent_color, team.group)
-	configured_item.set_enabled(false)
-	$Character/InventoryItems.add_child(configured_item)
+func add_item(item : Item): #called when Item is picked up
+	print("aaaaaaaaaaaaaaa----", team, team.accent_color, team.group)
+	item.set_item_team(team)
+	item.set_enabled(false) #disabled in inventory
+	$Character/InventoryItems.add_child(item)
 	auto_equip_items()
 
 func remove_item(item_location : PlayerItemLocation):

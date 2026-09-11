@@ -46,4 +46,7 @@ func get_hit():
 func set_activation(is_activated : bool) -> void:
 	$MeshInstance3D.visible = is_activated
 	$Area3D/CollisionShape3D.disabled = not is_activated
+
+func set_item_loose(value): #overriding
+	super(value)
 	

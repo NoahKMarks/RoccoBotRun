@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://k4ounf33ikf0" path="res://Items/Weapons/LaserSword/laser_sword.gd" id="1_rgbid"]
 [ext_resource type="Texture2D" uid="uid://dff64kjfmyvj5" path="res://Blender/textures/roccobot_sword.png" id="2_5advt"]
 [ext_resource type="AudioStream" uid="uid://875x1m85owlt" path="res://Items/Weapons/LaserSword/638292__captainyulef__laser-sword.wav" id="2_jlyrl"]
+[ext_resource type="PackedScene" uid="uid://b58360w8sg2ye" path="res://Blender/ItemsandWeapons.blend" id="3_7h3rg"]
 [ext_resource type="Script" uid="uid://cfclv6qvuowiy" path="res://Components/deal_damage_component.gd" id="3_p6v48"]
+[ext_resource type="Material" uid="uid://c6h1t4otwjmjd" path="res://Items/Weapons/roccobot_weapons_mat.tres" id="4_8iod1"]
+[ext_resource type="Texture2D" uid="uid://dbd0g44yvq0ie" path="res://Items/Weapons/RoccoBotWeaponsCOLOR.png" id="5_t0te1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqoyk"]
 albedo_texture = ExtResource("2_5advt")
@@ -74,6 +77,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ou47k")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3wyo"]
+albedo_texture = ExtResource("5_t0te1")
+
 [sub_resource type="BoxMesh" id="BoxMesh_scvj4"]
 size = Vector3(0.25, 0.25, 1)
 
@@ -85,9 +91,42 @@ script = ExtResource("1_rgbid")
 attack_cooldown = 0.4
 
 [node name="Sword" type="MeshInstance3D" parent="." unique_id=683431882]
+visible = false
 material_override = SubResource("StandardMaterial3D_gqoyk")
 mesh = SubResource("ArrayMesh_7h3rg")
 skeleton = NodePath("")
+
+[node name="ItemsandWeapons" parent="." unique_id=1347257297 instance=ExtResource("3_7h3rg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3, 0, 0)
+
+[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=786090580]
+process_mode = 4
+visible = false
+
+[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=1175271109]
+process_mode = 4
+visible = false
+
+[node name="Sword" parent="ItemsandWeapons" index="2" unique_id=876848022]
+surface_material_override/0 = ExtResource("4_8iod1")
+surface_material_override/1 = SubResource("StandardMaterial3D_p3wyo")
+
+[node name="GrenadeCannon" parent="ItemsandWeapons" index="3" unique_id=886956499]
+process_mode = 4
+visible = false
+
+[node name="LaserShied" parent="ItemsandWeapons" index="4" unique_id=1822742689]
+process_mode = 4
+visible = false
+
+[node name="LaserShied" parent="ItemsandWeapons/LaserShied" index="0" unique_id=122665756]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="ItemsandWeapons/LaserShied/LaserShied" index="0" unique_id=1086957244]
+process_mode = 4
+
+[node name="ShieldHandle" parent="ItemsandWeapons/LaserShied" index="1" unique_id=1351032339]
+process_mode = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1511355537]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
@@ -108,3 +147,5 @@ stream = ExtResource("2_jlyrl")
 
 [node name="Timer" type="Timer" parent="." unique_id=1258822074]
 one_shot = true
+
+[editable path="ItemsandWeapons"]

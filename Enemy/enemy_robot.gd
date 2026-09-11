@@ -30,7 +30,7 @@ func _ready() -> void:
 	$OtherRobots/EnemyRoboEye.material_override = eye_mat
 	
 	if weapon:
-		weapon.configure_item(team.accent_color)
+		weapon.set_item_team(team)
 	if health_component:
 		health_component.health_out.connect(die)
 	

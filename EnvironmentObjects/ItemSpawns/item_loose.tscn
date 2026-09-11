@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://xmwqtq01uwm7"]
+[gd_scene format=3 uid="uid://xmwqtq01uwm7"]
 
-[ext_resource type="Script" path="res://EnvironmentObjects/ItemSpawns/item_loose.gd" id="1_1s8fh"]
-[ext_resource type="PackedScene" uid="uid://bnfa46j5hc2ww" path="res://Items/Weapons/LaserCannon/laser_cannon.tscn" id="2_un1ip"]
+[ext_resource type="Script" uid="uid://c5ars5kq01vpg" path="res://EnvironmentObjects/ItemSpawns/item_loose.gd" id="1_1s8fh"]
 [ext_resource type="AudioStream" uid="uid://bihu12h4htg4u" path="res://EnvironmentObjects/ItemSpawns/752015__dishings__futuristic-collect-sound.mp3" id="3_n63pt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fotc0"]
@@ -10,22 +9,25 @@ radius = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_pkh4n"]
 size = Vector3(0.1, 0.1, 0.5)
 
-[node name="ItemLoose" type="Area3D"]
+[node name="ItemLoose" type="Area3D" unique_id=936160033]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_1s8fh")
-item = ExtResource("2_un1ip")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1767575447]
 shape = SubResource("SphereShape3D_fotc0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1300524292]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
 mesh = SubResource("BoxMesh_pkh4n")
 skeleton = NodePath("../CollisionShape3D")
 
-[node name="CollectSound" type="AudioStreamPlayer3D" parent="."]
+[node name="CollectSound" type="AudioStreamPlayer3D" parent="." unique_id=604334164]
 stream = ExtResource("3_n63pt")
+
+[node name="ItemContainer" type="Node3D" parent="." unique_id=288777259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="finished" from="CollectSound" to="." method="_on_collect_sound_finished"]
