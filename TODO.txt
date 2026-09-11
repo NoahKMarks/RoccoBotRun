@@ -45,10 +45,8 @@ Look into making rotating arms for aim using motion controls from nintendo switc
 
 ## Next Steps
 
-Item crate 
-Interactable item crate that instantiates an item loose.
 
-More robust data structure for items and storing item data. Picking up and dropping items with item keeping state. See Gemini chat
+More robust data structure for items and storing item data. Picking up and dropping items with item keeping state.
 
 Map out levels using physics objects with LaunchBoom doors and item crates
 
@@ -62,3 +60,12 @@ Make itemcrate use interactable component
 Allow control of targetting by making arms aim in different directions
 
 Make A camera viewing object system to focus on targets
+
+
+
+Add looking up and down aswell as left and right
+Later support camera moving to places when next stage is reached
+
+Get Laser Shield working with updating mesh and fix its shader
+Add Running 
+Add Jetpack Item in later levels

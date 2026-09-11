@@ -18,9 +18,10 @@ const BLAST_PROJECTILE = preload("res://Items/Weapons/PlasmaCannon/plasma_blast.
 
 func _ready() -> void:
 	shoot_component.projectile = BLAST_PROJECTILE
-	shoot_component.target_group = target_group
+	#shoot_component.target_group = target_group
+	shoot_component.team = team
+	print("plasma cannon ", team)
 	shoot_component.damage = damage
-	shoot_component.accent_color = accent_color
 	charge_component.max_charge = max_charge
 	charge_component.charge_regen_rate = regen_rate
 	charge_component.regen_cooldown = regen_cooldown
@@ -34,22 +35,13 @@ func use_item():
 		#Adding projectile
 		charge_component.reduce_charge()
 		$ShootComponent.shoot($SpawnPoint.global_transform)
-		return
-		var projectile = BLAST_PROJECTILE.instantiate()
-		projectile.target_group = target_group
-		projectile.accent_color = self.accent_color
-		projectile.damage = damage
-		projectile.global_position = $SpawnPoint.global_position
-		get_tree().current_scene.add_child(projectile)
 		
-		projectile.global_transform = global_transform
-
-		var base_dir = -global_transform.basis.z
-
-		projectile.look_at(global_transform.origin+base_dir, Vector3.UP)
-
 func release_item():
 	can_use = true
+
+func set_item_team(t : Team):
+	super(t)
+	shoot_component.team = team
 
 
 #Bug where cannon being unnequipped deletes projectile blast so make blast independant of the cannon

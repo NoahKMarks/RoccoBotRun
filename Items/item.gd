@@ -26,7 +26,7 @@ static func create_item(packed_scene: PackedScene)->Item:
 	#item.configure_item(accent_color)
 	return item
 
-func set_item_team(t : Team):
+func set_item_team(t : Team): #weapons or items with components should assign these components teams
 	self.team = t
 
 func set_item_loose(value):

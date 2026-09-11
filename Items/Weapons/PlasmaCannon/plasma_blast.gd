@@ -3,16 +3,16 @@ extends Area3D
 @export var speed := 5 
 @onready var age = 0
 @export var explode_age = 2.5
-@export var target_group : String
-@export var accent_color : String
+@export var team : Team
 @export var damage : float
 
 var expand_time = 0.25
 var max_size = 0.75
 
 func _ready() -> void:
-	var mat = Globals.get_material(Globals.MaterialTemplates.TransparentGlowMat, accent_color)
+	var mat = Globals.get_material(Globals.MaterialTemplates.TransparentGlowMat, team.accent_color)
 	$MeshInstance3D.material_override = mat
+	$DealDamageComponent.team = team
 
 var speed_fac = 1
 var _first_frame = true

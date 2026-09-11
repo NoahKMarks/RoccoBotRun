@@ -2,9 +2,9 @@ extends RigidBody3D
 
 const EXPLOSION = preload("res://Items/Weapons/GrenadeLauncher/explosion.tscn")
 @export var explosion_time : float = 0.5
-@export var accent_color : String
+@export var team : Team
 @export var damage : int
-@export var target_group = "enemies"
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	$ExplosionTimer.start(explosion_time)
 
@@ -16,7 +16,8 @@ func explode():
 #	accent_color = materials.values()[ randi() % materials.size() ]
 	var explosion = EXPLOSION.instantiate()
 		
-	explosion.accent_color = accent_color
+	explosion.team = team
+	print("explosion", explosion.team)
 	explosion.global_position = global_position
 	explosion.damage = damage
 	get_tree().current_scene.add_child(explosion)

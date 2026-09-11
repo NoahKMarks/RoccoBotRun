@@ -9,12 +9,13 @@ var progress = 0.0
 
 @export var explosion_power = 50
 @export var damage = 150
-@export var accent_color : String
+@export var team : Team
 
 var mat : StandardMaterial3D
 var mat_dup : StandardMaterial3D
 
-func _ready() -> void:	
+func _ready() -> void:
+	$DealDamageComponent.team = team
 	$MeshInstance3D.scale = Vector3.ONE * initial_radius
 	$Area3D/CollisionShape3D.scale = Vector3.ONE * max_radius
 	
@@ -23,7 +24,7 @@ func _ready() -> void:
 	
 	$AudioStreamPlayer3D.play()
 	
-	mat = Globals.get_material(Globals.MaterialTemplates.TransparentGlowMat, accent_color)
+	mat = Globals.get_material(Globals.MaterialTemplates.TransparentGlowMat, team.accent_color)
 	mat_dup = mat.duplicate()
 	#mat_dup.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 
@@ -59,6 +60,7 @@ func _on_launch_timer_timeout():
 		if body is RigidBody3D:
 			var strength = explosion_power/distance**2
 			body.apply_impulse(direction*strength)
+		print(body, damage)
 		$DealDamageComponent.deal_damage(2.5*damage/distance**2, body)
 
 

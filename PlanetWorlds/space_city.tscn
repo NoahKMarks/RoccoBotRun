@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://5an5vujsy33f" path="res://Items/LaserShield/shield.tscn" id="16_0f71s"]
 [ext_resource type="PackedScene" uid="uid://bnfa46j5hc2ww" path="res://Items/Weapons/LaserCannon/laser_cannon.tscn" id="16_c21ni"]
 [ext_resource type="PackedScene" uid="uid://clnnfd7uia28w" path="res://Items/Weapons/LaserSword/laser_sword.tscn" id="17_cgklc"]
-[ext_resource type="PackedScene" uid="uid://2xncat2u1tud" path="res://Items/Weapons/PlasmaCannon/plasma_cannon.tscn" id="17_u5p4i"]
 [ext_resource type="PackedScene" uid="uid://bmgsiwipu78v3" path="res://Items/KeyCard/keycard.tscn" id="18_qt7pv"]
+[ext_resource type="PackedScene" uid="uid://dndtnu600nx6r" path="res://Items/Weapons/GrenadeLauncher/grenade_launcher.tscn" id="20_c21ni"]
 
 [sub_resource type="Gradient" id="Gradient_vp75p"]
 offsets = PackedFloat32Array(0, 0.997696)
@@ -361,6 +361,10 @@ autoplay = true
 
 [node name="Items" type="Node3D" parent="." unique_id=779161771]
 
+[node name="ItemSpawn1" parent="Items" unique_id=179011268 instance=ExtResource("15_akhek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0.6, -6)
+item_scene = ExtResource("16_0f71s")
+
 [node name="ItemSpawn2" parent="Items" unique_id=444110539 instance=ExtResource("15_akhek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -16)
 item_scene = ExtResource("16_c21ni")
@@ -373,12 +377,8 @@ item_scene = ExtResource("17_cgklc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -17)
 item_scene = ExtResource("18_qt7pv")
 
-[node name="ItemSpawn1" parent="Items" unique_id=179011268 instance=ExtResource("15_akhek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0.6, -6)
-item_scene = ExtResource("16_0f71s")
-
 [node name="ItemSpawn4" parent="Items" unique_id=871735286 instance=ExtResource("15_akhek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -11)
-item_scene = ExtResource("17_u5p4i")
+item_scene = ExtResource("20_c21ni")
 
 [connection signal="body_entered" from="FloorKillZone" to="FloorKillZone" method="_on_body_entered"]

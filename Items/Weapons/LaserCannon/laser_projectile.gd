@@ -3,8 +3,7 @@ extends RayCast3D
 @export var speed := 50.0
 @onready var age = 0
 @export var max_age = 0.5
-@export var target_group : String
-@export var accent_color : String
+@export var team : Team
 @export var damage : float
 @onready var deal_damage_component : DealDamageComponent = $DealDamageComponent
 
@@ -12,9 +11,9 @@ const decal_node = preload("res://Items/Weapons/LaserCannon/bullet_hole_decal.ts
 
 
 func _ready() -> void:
-	var mat = Globals.get_material(Globals.MaterialTemplates.LaserMat, accent_color)
+	var mat = Globals.get_material(Globals.MaterialTemplates.LaserMat, team.accent_color)
 	$MeshInstance3D.material_override = mat
-	$DealDamageComponent.target_group = target_group
+	$DealDamageComponent.team = team
 	
 func _physics_process(delta: float) -> void:
 	age += delta

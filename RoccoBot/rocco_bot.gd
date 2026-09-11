@@ -201,7 +201,6 @@ func use_item_at_location(item_location : PlayerItemLocation, is_release):
 			item.use_item()
 
 func add_item(item : Item): #called when Item is picked up
-	print("aaaaaaaaaaaaaaa----", team, team.accent_color, team.group)
 	item.set_item_team(team)
 	item.set_enabled(false) #disabled in inventory
 	$Character/InventoryItems.add_child(item)

@@ -2,10 +2,10 @@ extends Area3D
 
 @export var item_scene : PackedScene
 #Crashes if it is not an item that is added
-var spin_speed = 3
-var item_position : Vector3 = Vector3(0,0.2,0)
+var spin_speed = 1
+var item_position : Vector3 = Vector3(0,0.3,0)
 var item_phase = 0
-var item_bob_period = 1
+var item_bob_period = 2.5
 var item_bob_amp = 0.1
 
 func _ready() -> void:

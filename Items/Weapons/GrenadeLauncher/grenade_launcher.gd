@@ -21,16 +21,15 @@ var time_since_last_release : float = 0
 func _ready() -> void:
 	lock_rotation = true
 	shoot_component.projectile = GRENADE
-	shoot_component.damage = damage
-	shoot_component.accent_color = accent_color
+	shoot_component.team = team
 	charge_component.max_charge = shots
+	shoot_component.damage = damage
 	charge_component.can_regen = false
 	
 	
 func use_item():
 	#if $Timer.is_stopped():
 		rising = true
-	
 
 func release_item():
 	rising = false
@@ -54,6 +53,11 @@ func _physics_process(delta: float) -> void:
 		angle = clampf(move_toward(angle, 0, delta), 0,PI/3)
 
 	rotation.x = angle
+
+func set_item_team(t : Team):
+	super(t)
+	shoot_component.team = team
+	
 
 """
 TODO

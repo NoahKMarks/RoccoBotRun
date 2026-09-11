@@ -23,7 +23,7 @@ const BLOOM = PI/72
 
 func _ready() -> void:
 	shoot_component.projectile = LASER_PROJECTILE
-	shoot_component.target_group = target_group
+	#shoot_component.target_group = target_group
 	shoot_component.bloom_angle = BLOOM
 	shoot_component.damage = damage
 	shoot_component.bloom_angle = bloom_angle*PI/180
@@ -39,6 +39,10 @@ func use_item():
 		$AudioStreamPlayer3D.play()
 		#Adding projectile
 		charge_component.reduce_charge()
-		shoot_component.accent_color = accent_color
+
 		shoot_component.shoot(global_transform)
 		#print(self, self.accent_color)
+
+func set_item_team(t : Team):
+	super(t)
+	shoot_component.team = team
