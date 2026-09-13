@@ -20,6 +20,7 @@ script = ExtResource("1_3vlga")
 fire_rate = 0.6
 damage = 110
 max_charge = 3
+item_name = "PlasmaCannon"
 icon = ExtResource("2_2qd5v")
 
 [node name="Timer" type="Timer" parent="." unique_id=1379773308]
@@ -44,33 +45,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 [node name="ItemsandWeapons" parent="." unique_id=1624540665 instance=ExtResource("8_ggsjx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
-[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=795215860]
+[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=506522669]
 process_mode = 4
 visible = false
 
-[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=934605364]
+[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=1273382785]
 surface_material_override/0 = ExtResource("9_ggsjx")
 surface_material_override/1 = ExtResource("9_ggsjx")
 
-[node name="Sword" parent="ItemsandWeapons" index="2" unique_id=5784913]
+[node name="Sword" parent="ItemsandWeapons" index="2" unique_id=1934553824]
 process_mode = 4
 visible = false
 
-[node name="GrenadeCannon" parent="ItemsandWeapons" index="3" unique_id=1701049046]
+[node name="GrenadeCannon" parent="ItemsandWeapons" index="3" unique_id=1497647116]
 process_mode = 4
 visible = false
 
-[node name="LaserShied" parent="ItemsandWeapons" index="4" unique_id=1695226634]
+[node name="LaserShield" parent="ItemsandWeapons" index="4" unique_id=36490952]
 process_mode = 4
 visible = false
 
-[node name="LaserShied" parent="ItemsandWeapons/LaserShied" index="0" unique_id=1345833272]
-process_mode = 4
-
-[node name="CollisionShape3D" parent="ItemsandWeapons/LaserShied/LaserShied" index="0" unique_id=1647368985]
-process_mode = 4
-
-[node name="ShieldHandle" parent="ItemsandWeapons/LaserShied" index="1" unique_id=1471735620]
-process_mode = 4
+[node name="ShieldHandle" parent="ItemsandWeapons/LaserShield" index="0" unique_id=1815579649]
+visible = false
 
 [editable path="ItemsandWeapons"]

@@ -3,6 +3,7 @@ class_name Item
 
 signal item_used
 
+@export var item_name : String = self.name
 @export var icon : Texture
 var is_loose = false #item is on floor as a child of the ItemLoose Scene
 var is_equipped : bool = false
@@ -18,6 +19,21 @@ var accent_color : String = "pink"
 	##set(value):
 		##print(self, value)
 		#accent_color = value
+func _ready() -> void:
+	print("readddddyyyy")
+	if item_name:
+		var item_weapons_node = get_node_or_null("ItemsandWeapons")
+		print("itemweaponsnode", item_weapons_node)
+		if item_weapons_node:
+			for c in item_weapons_node.get_children():
+				if c.name != item_name:
+					c.hide()
+					c.set_process(false)
+					print("turning off ", c.name)
+				else:
+					c.show()
+					c.set_process(true)
+					print("turning on ", c.name)
 
 
 static func create_item(packed_scene: PackedScene)->Item:

@@ -13,6 +13,7 @@ size = Vector3(0.1, 0.1, 0.5)
 
 [node name="LaserCannon" type="Node3D" unique_id=2105187366]
 script = ExtResource("1_h5a8w")
+item_name = "LaserCannon"
 icon = ExtResource("2_b60v4")
 
 [node name="Timer" type="Timer" parent="." unique_id=1408641791]
@@ -22,24 +23,27 @@ one_shot = true
 [node name="ItemsandWeapons" parent="." unique_id=1384538904 instance=ExtResource("3_lo324")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
-[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=795215860]
+[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=506522669]
 surface_material_override/0 = ExtResource("4_hdoco")
 surface_material_override/1 = ExtResource("4_hdoco")
 
-[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=934605364]
+[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=1273382785]
 process_mode = 4
 visible = false
 
-[node name="Sword" parent="ItemsandWeapons" index="2" unique_id=5784913]
+[node name="Sword" parent="ItemsandWeapons" index="2" unique_id=1934553824]
 process_mode = 4
 visible = false
 
-[node name="GrenadeCannon" parent="ItemsandWeapons" index="3" unique_id=1701049046]
+[node name="GrenadeCannon" parent="ItemsandWeapons" index="3" unique_id=1497647116]
 process_mode = 4
 visible = false
 
-[node name="LaserShied" parent="ItemsandWeapons" index="4" unique_id=1695226634]
+[node name="LaserShield" parent="ItemsandWeapons" index="4" unique_id=36490952]
 process_mode = 4
+visible = false
+
+[node name="ShieldHandle" parent="ItemsandWeapons/LaserShield" index="0" unique_id=1815579649]
 visible = false
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1033214554]

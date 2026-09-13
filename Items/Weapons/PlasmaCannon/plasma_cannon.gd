@@ -17,8 +17,8 @@ const BLAST_PROJECTILE = preload("res://Items/Weapons/PlasmaCannon/plasma_blast.
 @onready var shot_time = 1/fire_rate
 
 func _ready() -> void:
+	super()
 	shoot_component.projectile = BLAST_PROJECTILE
-	#shoot_component.target_group = target_group
 	shoot_component.team = team
 	print("plasma cannon ", team)
 	shoot_component.damage = damage

@@ -19,6 +19,7 @@ var action_pressed := false
 var time_since_last_release : float = 0
 
 func _ready() -> void:
+	super()
 	lock_rotation = true
 	shoot_component.projectile = GRENADE
 	shoot_component.team = team

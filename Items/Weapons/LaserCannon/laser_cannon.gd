@@ -22,8 +22,8 @@ const BLOOM = PI/72
 
 
 func _ready() -> void:
+	super()
 	shoot_component.projectile = LASER_PROJECTILE
-	#shoot_component.target_group = target_group
 	shoot_component.bloom_angle = BLOOM
 	shoot_component.damage = damage
 	shoot_component.bloom_angle = bloom_angle*PI/180

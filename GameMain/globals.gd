@@ -45,6 +45,7 @@ func make_material(template : MaterialTemplates, color_name : String):
 			mat.emission = color
 		MaterialTemplates.LaserShieldShader:
 			mat = preload("res://Items/LaserShield/laser_shield_shader.tres").duplicate()
+			mat.set_shader_parameter("base_color", Vector3(color.r,color.g,color.b))
 			
 			mat.set_shader_parameter("color", Vector3(color.r,color.g,color.b))
 			

@@ -13,7 +13,7 @@ func _ready() -> void:
 	if item_scene:
 		var new_item = Item.create_item(item_scene)
 		$ItemContainer.add_child(new_item)
-		new_item.is_loose = true
+		new_item.set_item_loose(true)
 		#item_position = $ItemContainer.position
 	
 #Item probably shouldnt be telling player to pick it up

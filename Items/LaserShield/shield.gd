@@ -6,6 +6,7 @@ extends Item
 @export var max_charge : int = 8
 @export var regen_rate : float = 0.5
 @export var regen_cooldown : float = 2
+@onready var shield_mesh: MeshInstance3D = $ItemsandWeapons/LaserShield
 
 #var activated = false:
 #	set(value):
@@ -15,6 +16,7 @@ extends Item
 
 
 func _ready() -> void:
+	super()
 	lock_rotation = true
 	damagable_component.get_hit.connect(get_hit)
 	
@@ -23,10 +25,15 @@ func _ready() -> void:
 	charge_component.regen_cooldown = regen_cooldown
 	
 	var mat = Globals.get_material(Globals.MaterialTemplates.LaserShieldShader, accent_color)
-	$MeshInstance3D.set_surface_override_material(0, mat)
+	shield_mesh.set_surface_override_material(0, mat)
 	set_activation(false)
 	#var parent = get_parent()
 
+func set_item_team(t : Team):
+	super(t)
+	var mat = Globals.get_material(Globals.MaterialTemplates.LaserShieldShader, accent_color)
+	shield_mesh.set_surface_override_material(0, mat)
+	
 func use_item():
 	if charge_component.charge>0:
 		set_activation(true)
@@ -44,9 +51,10 @@ func get_hit():
 		$AudioStreamPlayer3D.play()
 	
 func set_activation(is_activated : bool) -> void:
-	$MeshInstance3D.visible = is_activated
+	shield_mesh.visible = is_activated
 	$Area3D/CollisionShape3D.disabled = not is_activated
 
 func set_item_loose(value): #overriding
 	super(value)
+	shield_mesh.visible = true
 	

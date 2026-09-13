@@ -16,30 +16,27 @@ radial_segments = 8
 [node name="GrenadeLauncher" type="Node3D" unique_id=1806084351]
 script = ExtResource("1_e2ua2")
 shots = 6
+item_name = "GrenadeLauncher"
 icon = ExtResource("2_vwxxk")
 
 [node name="ItemsandWeapons" parent="." unique_id=803704097 instance=ExtResource("3_lw0aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
-[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=795215860]
+[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=25865620]
 process_mode = 4
 visible = false
 
-[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=934605364]
+[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=1603612429]
 process_mode = 4
 visible = false
 
-[node name="Sword" parent="ItemsandWeapons" index="2" unique_id=5784913]
+[node name="Sword" parent="ItemsandWeapons" index="2" unique_id=1343963532]
 process_mode = 4
 visible = false
 
-[node name="GrenadeCannon" parent="ItemsandWeapons" index="3" unique_id=1701049046]
+[node name="GrenadeLauncher" parent="ItemsandWeapons" index="3" unique_id=408632888]
 surface_material_override/0 = ExtResource("4_lw0aa")
 surface_material_override/1 = ExtResource("4_lw0aa")
-
-[node name="LaserShied" parent="ItemsandWeapons" index="4" unique_id=1695226634]
-process_mode = 4
-visible = false
 
 [node name="Timer" type="Timer" parent="." unique_id=921516837]
 one_shot = true
