@@ -96,26 +96,26 @@ skeleton = NodePath("")
 [node name="ItemsandWeapons" parent="." unique_id=1347257297 instance=ExtResource("3_7h3rg")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3, 0, 0)
 
-[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=1157630877]
+[node name="LaserCannon" parent="ItemsandWeapons" index="0" unique_id=340751266]
 process_mode = 4
 visible = false
 
-[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=107271238]
+[node name="PlasmaCannon" parent="ItemsandWeapons" index="1" unique_id=1603298029]
 process_mode = 4
 visible = false
 
-[node name="LaserSword" parent="ItemsandWeapons" index="2" unique_id=1212288832]
+[node name="LaserSword" parent="ItemsandWeapons" index="2" unique_id=1501341573]
 surface_material_override/0 = ExtResource("4_8iod1")
 surface_material_override/1 = ExtResource("4_8iod1")
 
-[node name="GrenadeLauncher" parent="ItemsandWeapons" index="3" unique_id=1976736401]
+[node name="GrenadeLauncher" parent="ItemsandWeapons" index="3" unique_id=1887491014]
 process_mode = 4
 visible = false
 
-[node name="LaserShield" parent="ItemsandWeapons" index="4" unique_id=1735952977]
+[node name="LaserShield" parent="ItemsandWeapons" index="4" unique_id=376504746]
 visible = false
 
-[node name="ShieldHandle" parent="ItemsandWeapons/LaserShield" index="0" unique_id=896707184]
+[node name="ShieldHandle" parent="ItemsandWeapons/LaserShield" index="0" unique_id=1452645533]
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1511355537]

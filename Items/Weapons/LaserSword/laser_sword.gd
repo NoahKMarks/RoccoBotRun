@@ -7,6 +7,7 @@ extends Item
 @export var attack_cooldown = 0.25
 
 func _ready() -> void:
+	super()
 	lock_rotation = true
 
 func use_item():
